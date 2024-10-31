@@ -18,7 +18,7 @@ def cadastrar_cliente():
     # titulo da página
     st.title("Studio Ana Ferreira")
     # base onde estão os dados salvos
-    df_clientes = pd.read_excel(r"CC:\Users\joaoc\Documents\novo_gerenciador_studio\bases_salao\clientes_cadastrados.xlsx",sheet_name="clientes_cadastrados",engine="openpyxl")
+    df_clientes = pd.read_excel(r"C:\Users\joaoc\Documents\novo_gerenciador_studio\bases_salao\clientes_cadastrados.xlsx",sheet_name="clientes_cadastrados",engine="openpyxl")
     st.header("Cadastro de clientes 🙋‍♀️")
     
     with st.form("myform"):
