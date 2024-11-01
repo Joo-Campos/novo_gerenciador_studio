@@ -16,7 +16,7 @@ def cadastrar_cliente():
     input_clientes = []
     data_hoje = dt.datetime.today()
 
-    teste_arquivo = os.path.join("C:\Users\joaoc\Documents\novo_gerenciador_studio\bases_salao","clientes_cadastrados.xlsx")
+    teste_arquivo = os.path.join("C:", "Users", "joaoc", "novo_gerenciador_studio", "bases_salao", "clientes_cadastrados.xlsx")
 
     # titulo da página
     st.title("Studio Ana Ferreira")
