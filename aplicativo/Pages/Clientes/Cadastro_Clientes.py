@@ -4,6 +4,7 @@ import numpy as np
 import time as time
 import datetime as dt
 import openpyxl
+import os
 
 # cache_data - obtem as informações dos arquivo e salva internamente, para que não haja necessidade de baixas as informações novamente;
 # Só baixará novamente, quando uma informação for acrescentada
@@ -15,10 +16,12 @@ def cadastrar_cliente():
     input_clientes = []
     data_hoje = dt.datetime.today()
 
+    teste_arquivo = os.path.join("C:\Users\joaoc\Documents\novo_gerenciador_studio\bases_salao","clientes_cadastrados.xlsx")
+
     # titulo da página
     st.title("Studio Ana Ferreira")
     # base onde estão os dados salvos
-    df_clientes = pd.read_excel(r"C:\Users\joaoc\Documents\novo_gerenciador_studio\bases_salao\clientes_cadastrados.xlsx",sheet_name="clientes_cadastrados",engine="openpyxl")
+    df_clientes = pd.read_excel(teste_arquivo,sheet_name="clientes_cadastrados",engine="openpyxl")
     st.header("Cadastro de clientes 🙋‍♀️")
     
     with st.form("myform"):
