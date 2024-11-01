@@ -5,7 +5,6 @@ import time as time
 import datetime as dt
 import openpyxl
 import os
-import requests
 
 # cache_data - obtem as informações dos arquivo e salva internamente, para que não haja necessidade de baixas as informações novamente;
 # Só baixará novamente, quando uma informação for acrescentada
@@ -17,18 +16,12 @@ def cadastrar_cliente():
     input_clientes = []
     data_hoje = dt.datetime.today()
 
-    url = "https://1drv.ms/x/c/190192ab08a3e84f/EWvg-zqe_qREl3U9M2hSncABxkWgB87ad2XPjGR9tlF3-w?e=PVf6kE"
-    response = requests.get(url)
-    with open("clientes_cadastrados.xlsx", "wb") as file:
-            file.write(response.content)
-
-# Carregar o arquivo baixado
-    df_clientes = pd.read_excel("clientes_cadastrados.xlsx", sheet_name="clientes_cadastrados", engine="openpyxl")
+    
 
     # titulo da página
     st.title("Studio Ana Ferreira")
     # base onde estão os dados salvos
-    df_clientes = pd.read_excel(teste_arquivo,sheet_name="clientes_cadastrados",engine="openpyxl")
+    df_clientes = pd.read_excel(r"C:\Users\joaoc\Documents\novo_gerenciador_studio\bases_salao\clientes_cadastrados.xlsx",sheet_name="clientes_cadastrados",engine="openpyxl")
     st.header("Cadastro de clientes 🙋‍♀️")
     
     with st.form("myform"):
@@ -50,9 +43,9 @@ def cadastrar_cliente():
                                                                 "ativo_em"
                     ])
             atualizacao_clientes = pd.concat([df_clientes,novo_cliente],ignore_index=True,names=None)
-            atualizacao_clientes.to_excel(teste_arquivo,sheet_name="clientes_cadastrados",index= False,index_label=False)
+            atualizacao_clientes.to_excel(r"C:\Users\joaoc\Documents\novo_gerenciador_studio\bases_salao\clientes_cadastrados.xlsx",sheet_name="clientes_cadastrados",index= False,index_label=False)
                     # base que será a banco de dados onde as informações serão salvas
-            df_clientes = pd.read_excel(teste_arquivo,sheet_name="clientes_cadastrados",engine="openpyxl",index_col=0)
+            df_clientes = pd.read_excel(r"C:\Users\joaoc\Documents\novo_gerenciador_studio\bases_salao\clientes_cadastrados.xlsx",sheet_name="clientes_cadastrados",engine="openpyxl",index_col=0)
             st.success('Cliente cadastrado com sucesso!', icon="✅")
 
 if __name__ == "__main.py":
