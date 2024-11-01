@@ -43,9 +43,9 @@ def cadastrar_cliente():
                                                                 "ativo_em"
                     ])
             atualizacao_clientes = pd.concat([df_clientes,novo_cliente],ignore_index=True,names=None)
-            atualizacao_clientes.to_excel(r"C:\Users\joaoc\Documents\novo_gerenciador_studio\bases_salao\clientes_cadastrados.xlsx",sheet_name="clientes_cadastrados",index= False,index_label=False)
+            atualizacao_clientes.to_excel(teste_arquivo,sheet_name="clientes_cadastrados",index= False,index_label=False)
                     # base que será a banco de dados onde as informações serão salvas
-            df_clientes = pd.read_excel(r"C:\Users\joaoc\Documents\novo_gerenciador_studio\bases_salao\clientes_cadastrados.xlsx",sheet_name="clientes_cadastrados",engine="openpyxl",index_col=0)
+            df_clientes = pd.read_excel(teste_arquivo,sheet_name="clientes_cadastrados",engine="openpyxl",index_col=0)
             st.success('Cliente cadastrado com sucesso!', icon="✅")
 
 if __name__ == "__main.py":
